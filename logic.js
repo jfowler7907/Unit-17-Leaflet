@@ -26,6 +26,28 @@ function createFeatures(earthquakeData) {
   createMap(earthquakes);
 }
 
+// Function to determine marker size based on earthquake size
+function markerSize(earthquakeData) {
+  return earthquakeData;
+}
+
+// Define arrays to hold created country markers
+var countryMarkers = [];
+
+// Loop through locations and create country markers
+for (var i = 0; i < earthquakeData; i++) {
+  // Setting the marker radius for the earthquake by passing earthquake info into the markerSize function
+  countryMarkers.push(
+    L.circle(earthquakes[i].coordinates, {
+      stroke: false,
+      fillOpacity: 0.75,
+      color: "white",
+      fillColor: "white",
+      radius: markerSize(earthquakes[i])
+    })
+  );
+}  
+
 function createMap(earthquakes) {
 
 console.log(earthquakes)
